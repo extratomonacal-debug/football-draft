@@ -1,1 +1,2 @@
-import { redirect } from "next/navigation"; export default function Home(){redirect("/index.html");}
+import Draft from './draft';
+export default function Page(){return <Draft/>}

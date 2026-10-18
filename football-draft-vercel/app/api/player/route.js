@@ -1,0 +1,3 @@
+import {fetchPage,parseProfile} from '../shared';
+export const runtime='nodejs';
+export async function GET(req){const id=new URL(req.url).searchParams.get('id')||'';if(!/^\d{1,12}$/.test(id))return Response.json({ok:false,error:'ID inválido'},{status:400});try{const url='https://www.transfermarkt.pt/-/profil/spieler/'+id;const html=await fetchPage(url);const value=parseProfile(html);if(value===null)throw Error('Não foi possível confirmar o valor no perfil.');return Response.json({ok:true,id,price:value,url,checkedAt:new Date().toISOString()},{headers:{'Cache-Control':'public, s-maxage=600'}})}catch(e){return Response.json({ok:false,error:e.message},{status:502})}}

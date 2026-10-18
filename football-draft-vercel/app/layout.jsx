@@ -1,2 +1,1 @@
-export const metadata = { title: "Football Draft", description: "Constrói a tua equipa com orçamento limitado" };
-export default function RootLayout({ children }) { return <html lang="pt"><body>{children}</body></html>; }
+export const metadata={title:'Football Draft | Cria a tua equipa',description:'Draft de futebol com orçamento e pesquisa Transfermarkt'};export default function Layout({children}){return <html lang='pt'><body style={{margin:0}}>{children}</body></html>}
